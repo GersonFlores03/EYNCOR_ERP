@@ -15,7 +15,7 @@ app.use(morgan("dev"))
 app.use(cors());
 
 
-app.get('/', (req, res) => {
+app.get('/users', (req, res) => {
     res.send('Hello Team Univlam')
 })
 
