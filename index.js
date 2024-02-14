@@ -1,25 +1,28 @@
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
+const userRouter = require("./src/routes/example.routes")
 //Rutas
 const app = express()
 
-const PORT = +process.env.PORT || 8020
+const PORT = +process.env.PORT || 8000
 
-if(process.env.NODE_ENV === 'development'){
-     app.use(morgan("dev"))
-}
+
+
 
 app.use(express.json());
+app.use(morgan("dev"))
 app.use(cors());
 
 
-app.get('/' , (req , res) => {
-    res.send('Hello Server')
+app.get('/', (req, res) => {
+    res.send('Hello Team Univlam')
 })
 
 // Routes de las peticiones
 
-app.listen(PORT , () => {
+app.use(userRouter)
+
+app.listen(PORT, () => {
     console.log(`Welcome server EYNCOR ${PORT}`)
 })
