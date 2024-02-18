@@ -2,6 +2,16 @@ const CreateService = require("../services/prueba.service")
 
 
 
+
+const findAllUser = async (req ,res , next) =>{
+    try {
+        const result = await CreateService.findUser()
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+}
+
 const CreateUser = async (req ,res ,next) => {
     try {
         const data = req.body
@@ -9,7 +19,7 @@ const CreateUser = async (req ,res ,next) => {
         res.status(201).json(result)
         
     } catch (error) {
-        res.status(400).json(error)
+        res.status(404).json(error)
     }
     
 } 
@@ -17,5 +27,6 @@ const CreateUser = async (req ,res ,next) => {
 
 
 module.exports = {
+    findAllUser,
     CreateUser
 }

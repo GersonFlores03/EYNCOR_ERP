@@ -11,17 +11,18 @@ const PORT = +process.env.PORT || 8000
 
 
 app.use(express.json());
-app.use(morgan("dev"))
 app.use(cors());
+app.use(morgan("dev"))
 
 
-app.get('/users', (req, res) => {
+// Routes de las peticiones
+app.use(userRouter)
+
+app.get('/', (req, res) => {
     res.send('Hello Team Univlam')
 })
 
-// Routes de las peticiones
 
-app.use(userRouter)
 
 app.listen(PORT, () => {
     console.log(`Welcome server EYNCOR ${PORT}`)

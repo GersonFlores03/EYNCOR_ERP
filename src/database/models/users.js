@@ -15,38 +15,20 @@ module.exports = (sequelize, DataTypes) => {
   }
   Users.init({
     id: {
-      type:DataTypes.UUID,
-      primaryKey: true
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
     },
+
     name: {
       type: DataTypes.STRING(80),
       allowNull: false
     },
+    
     lastname: {
       type: DataTypes.STRING(80),
       allowNull: false
-    },
-    age: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isEmail: true
-      }
-    },
-    password: {
-      allowNull: false,
-      type: DataTypes.STRING
-    },
-    email_verified: {
-      type: DataTypes.DATE
-    },
-    
-    token: {
-      type: DataTypes.TEXT
     },
   }, {
     sequelize,
