@@ -3,7 +3,7 @@ const {CreateUser, findAllUser } = require("../controllers/prueba.controllers")
 
 
 const router = Router()
-router.get('/api/v1/users' , findAllUser)
+router.get('/users' , findAllUser)
 router.post('/nosotros', CreateUser )
 
 
