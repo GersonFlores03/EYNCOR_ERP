@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
-const userRouter = require("./src/routes/example.routes")
+const userRouter = require("./routes/example.routes")
 //Rutas
 const app = express()
 
